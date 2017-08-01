@@ -24,15 +24,13 @@ export class AuthenticationComponent implements OnInit {
 
   onSubmitLogin() {
     this.authenticationService.login(this.user.name, this.user.password)
-                              .subscribe(data => { console.log(data);
-                                                   this.router.navigate(['/tasks']);
+                              .subscribe(data => { this.router.navigate(['/tasks']);
                                                   }, err => console.log(err));
   }
 
   onSubmitRegister() {
     this.authenticationService.register(this.user.name, this.user.password, this.user.email)
-                              .subscribe(data => { console.log(data);
-                                                   this.router.navigate(['/tasks']);
+                              .subscribe(data => { this.router.navigate(['/tasks']);
                                                   }, err => console.log(err));
   }
 }

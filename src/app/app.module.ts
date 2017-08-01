@@ -5,18 +5,23 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
-import {AuthenticationService} from './services/authentication/authentication.service';
+import { AuthenticationService } from './services/authentication/authentication.service';
+import { AuthenticateGuard } from './guards/can-activate/authenticate.guard';
+
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { TaskItemComponent } from './task-item/task-item.component';
+import { TasksService } from './services/tasks/tasks.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
     TaskListComponent,
-    TaskDetailComponent
+    TaskDetailComponent,
+    TaskItemComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +29,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, AuthenticateGuard, TasksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
