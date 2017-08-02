@@ -1,8 +1,8 @@
 <li [class.editing]="editMode" >
   <div class="view">
-    <input class="toggle" type="checkbox"  >
-    <label>ITEM</label>
-    <button  class="destroy"></button>
+    <input class="toggle" type="checkbox" [checked]="task.done" >
+    <label>{{task.title}}</label>
+    <button  class="destroy" (click)="remove()"></button>
   </div>
   <input class="edit">
 </li>

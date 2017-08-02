@@ -23,6 +23,11 @@ button {
   border-radius: 3px;
 }
 
+.add:before {
+  content: '\f271';
+  font: normal normal normal 20px/1 FontAwesome;
+}
+
 .add:hover {
   border-color: rgba(175, 47, 47, 0.1);
 }
@@ -59,7 +64,7 @@ button {
 
 .todoapp h1 {
   position: absolute;
-  top: -155px;
+  top: -205px;
   width: 100%;
   font-size: 100px;
   font-weight: 100;
