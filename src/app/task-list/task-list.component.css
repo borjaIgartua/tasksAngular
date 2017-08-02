@@ -9,10 +9,8 @@ button {
   font-weight: inherit;
   color: inherit;
   -webkit-appearance: none;
-  appearance: none;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
 }
 
 .add {
@@ -92,7 +90,6 @@ button {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
 }
 
 .new-todo {
