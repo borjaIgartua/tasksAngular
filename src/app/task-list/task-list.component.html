@@ -8,7 +8,9 @@
     <ul class="todo-list">
       <app-task-item *ngFor="let task of tasks" 
       [task]="task"
-      (removeTask)="removeTask($event)">
+      (removeTask)="removeTask($event)"
+      (updateTask)="updateTask($event)"
+      (taskDetail)="taskDetail($event)">
       </app-task-item>
     </ul>
   </section>

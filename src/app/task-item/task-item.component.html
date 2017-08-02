@@ -1,10 +1,9 @@
 <li [class.editing]="editMode" >
   <div class="view">
-    <input class="toggle" type="checkbox" [checked]="task.done" >
-    <label>{{task.title}}</label>
+    <input class="toggle" type="checkbox" [checked]="task.done" (click)="update()">
+    <label (click)="navigate()" >{{task.title}}</label>
     <button  class="destroy" (click)="remove()"></button>
   </div>
-  <input class="edit">
 </li>
 
 <!-- <li [class.editing]="editMode" [class.completed]="item.completed">

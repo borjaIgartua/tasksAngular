@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: AuthenticationComponent },
   { path: 'tasks', component: TaskListComponent, canActivate: [AuthenticateGuard]},
-  { path: 'task/:id', component: TaskDetailComponent, canActivate: [AuthenticateGuard]}
+  { path: 'tasks/:id', component: TaskDetailComponent, canActivate: [AuthenticateGuard]}
 ];
 
 @NgModule({
