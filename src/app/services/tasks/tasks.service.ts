@@ -20,6 +20,15 @@ export class TasksService {
                     .catch( (error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  getTask(id: number): Observable<Task> {
+    const headers = new Headers({});
+    const options = new RequestOptions({ headers: headers, withCredentials: true});
+    const url = 'http://192.168.0.33:8080/tasks/' + id;
+    return this.http.get(url, options)
+                    .map( (res: Response) => <Task>res.json())
+                    .catch( (error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
   addTask(task: Task): Observable<Task> {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers, withCredentials: true });

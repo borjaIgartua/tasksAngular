@@ -1,11 +1,11 @@
 <div class="form-style-5">
-  <form>
+  <form *ngIf="task" (ngSubmit)="onSubmitTask()">
     <fieldset>
       <legend><span class="number"></span> Task Detail</legend>
       <input type="text" name="title" placeholder="task title" required [(ngModel)]="task.title">
       <textarea name="message" placeholder="task message" [(ngModel)]="task.message"></textarea>
       <div class="slideThree">
-        <input type="checkbox" id="slideThree" name="check" [checked]="task.done" [(ngModel)]="task.done"/>
+        <input type="checkbox" id="slideThree" name="check" [checked]="task.done" (change)="task.done = !task.done"/>
         <label for="slideThree"></label>
       </div>
     </fieldset>

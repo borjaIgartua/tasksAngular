@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+
+import 'rxjs/add/operator/switchMap';
 
 import { TasksService } from '../services/tasks/tasks.service';
 import { Task } from '../entities/Task';
@@ -9,15 +12,17 @@ import { Task } from '../entities/Task';
   styleUrls: ['./task-detail.component.css']
 })
 export class TaskDetailComponent implements OnInit {
-  @Input()
+
   public task: Task;
 
-  constructor() { }
+  constructor(private taskService: TasksService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-
-		// this.route.params.switchMap((params: Params) => this.taskService.getTask(+params['id'])
-    // 					 .subscribe(task => this.task = task);
+    this.route.params.switchMap((params: Params) => this.taskService.getTask(+params['id']))
+                     .subscribe(task => this.task = task, err => console.log(err));
   }
 
+  onSubmitTask() {
+    this.taskService.updateTask(this.task).subscribe(task => this.task = task, err => console.log(err));
+  }
 }
